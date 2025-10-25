@@ -2,16 +2,16 @@
 # Install with: pip install -r requirements.txt
 
 # FastAPI - Web framework for building APIs
-fastapi==0.104.1
+fastapi==0.115.1
 
 # Uvicorn - ASGI server to run FastAPI
-uvicorn[standard]==0.24.0
+uvicorn[standard]==0.32.0
 
 # Pydantic - Data validation
-pydantic==2.5.0
+pydantic==2.9.2
 
 # Python multipart - For file uploads
-python-multipart==0.0.6
+python-multipart==0.0.12
 
 # For CORS (Cross-Origin Resource Sharing)
 # This is already included in FastAPI but listing for clarity
