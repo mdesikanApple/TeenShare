@@ -1,0 +1,17 @@
+# SafeShare Backend Requirements
+# Install with: pip install -r requirements.txt
+
+# FastAPI - Web framework for building APIs
+fastapi==0.104.1
+
+# Uvicorn - ASGI server to run FastAPI
+uvicorn[standard]==0.24.0
+
+# Pydantic - Data validation
+pydantic==2.5.0
+
+# Python multipart - For file uploads
+python-multipart==0.0.6
+
+# For CORS (Cross-Origin Resource Sharing)
+# This is already included in FastAPI but listing for clarity
