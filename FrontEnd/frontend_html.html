@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeShare - Teen Privacy Scanner</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="container">
+        
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="shield-icon">🛡️</span>
+                <h1>SafeShare</h1>
+            </div>
+            <p class="tagline">Protect your privacy before you post!</p>
+        </header>
+
+        <!-- Workflow Steps -->
+        <div class="workflow-steps">
+            <div class="step active" id="step-1">
+                <div class="step-number">1</div>
+                <div class="step-label">Type & Attach</div>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step" id="step-2">
+                <div class="step-number">2</div>
+                <div class="step-label">Scan</div>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step" id="step-3">
+                <div class="step-number">3</div>
+                <div class="step-label">Review Results</div>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step" id="step-4">
+                <div class="step-number">4</div>
+                <div class="step-label">Protect</div>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step" id="step-5">
+                <div class="step-number">5</div>
+                <div class="step-label">Preview</div>
+            </div>
+        </div>
+
+        <!-- Input Section -->
+        <div class="input-section card" id="input-section">
+            <h2>What do you want to share?</h2>
+            
+            <div class="text-input-wrapper">
+                <textarea 
+                    id="text-input" 
+                    placeholder="Type your message here... 
+
+Example: Hey everyone! My name is Sarah Johnson and I live at 123 Maple Street. You can call me at 555-123-4567 or email me at sarah.j@email.com. My birthday is 05/15/2008!"
+                    rows="8"
+                ></textarea>
+                <div class="char-count" id="char-count">0 / 102,400 characters</div>
+            </div>
+
+            <div class="file-upload-section">
+                <label for="file-upload" class="file-upload-label">
+                    <span class="upload-icon">📎</span>
+                    <span id="file-name">Attach Document (PDF or Word)</span>
+                </label>
+                <input type="file" id="file-upload" accept=".pdf,.doc,.docx" hidden>
+            </div>
+
+            <button class="btn btn-primary" id="scan-btn">
+                <span class="btn-icon">🔍</span>
+                Scan for Sensitive Info
+            </button>
+        </div>
+
+        <!-- Scanning Animation -->
+        <div class="scanning-section hidden" id="scanning-section">
+            <div class="scanning-animation">
+                <div class="spinner"></div>
+                <h3>Scanning your content...</h3>
+                <p>Looking for sensitive information that could put you at risk</p>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section hidden" id="results-section">
+            
+            <!-- Risk Meter -->
+            <div class="card risk-meter-card">
+                <h2>Privacy Risk Level</h2>
+                <div class="risk-meter">
+                    <div class="risk-meter-bar">
+                        <div class="risk-meter-fill" id="risk-meter-fill"></div>
+                    </div>
+                    <div class="risk-meter-labels">
+                        <span>Safe</span>
+                        <span>Low</span>
+                        <span>Medium</span>
+                        <span>High</span>
+                        <span>Critical</span>
+                    </div>
+                </div>
+                <div class="risk-level-display">
+                    <span class="risk-badge" id="risk-badge">Low Risk</span>
+                    <span class="risk-score" id="risk-score">Score: 25/100</span>
+                </div>
+            </div>
+
+            <!-- Found Sensitive Information -->
+            <div class="card findings-card">
+                <h2>🔎 What We Found</h2>
+                <p class="findings-summary" id="findings-summary"></p>
+                <div class="findings-list" id="findings-list"></div>
+                
+                <!-- Attachment Findings -->
+                <div class="attachment-findings hidden" id="attachment-findings">
+                    <h3>📄 In Your Attached Document:</h3>
+                    <div id="attachment-findings-list"></div>
+                </div>
+            </div>
+
+            <!-- Educational Information -->
+            <div class="card education-card" id="education-card">
+                <h2>📚 Why This Matters</h2>
+                <div class="education-content" id="education-content"></div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="btn btn-secondary" id="mask-btn">
+                    <span class="btn-icon">🎭</span>
+                    Mask Sensitive Data
+                </button>
+                <button class="btn btn-primary" id="preview-btn">
+                    <span class="btn-icon">👀</span>
+                    Preview on Social Media
+                </button>
+            </div>
+
+            <!-- Masked Text Display -->
+            <div class="card masked-text-card hidden" id="masked-text-card">
+                <h2>🎭 Protected Version</h2>
+                <p class="info-text">Here's your content with sensitive information masked:</p>
+                <div class="masked-text-display" id="masked-text-display"></div>
+                <button class="btn btn-copy" id="copy-btn">
+                    <span class="btn-icon">📋</span>
+                    Copy Protected Text
+                </button>
+            </div>
+        </div>
+
+        <!-- Social Media Preview Section -->
+        <div class="preview-section hidden" id="preview-section">
+            <div class="card">
+                <h2>📱 How It Looks on Social Media</h2>
+                <p class="info-text">See how your protected content will appear on popular platforms:</p>
+                
+                <div class="social-previews">
+                    <!-- Instagram Preview -->
+                    <div class="social-preview instagram-preview">
+                        <div class="preview-header">
+                            <div class="preview-platform">
+                                <span class="platform-icon">📷</span>
+                                <span class="platform-name">Instagram</span>
+                            </div>
+                        </div>
+                        <div class="instagram-post">
+                            <div class="instagram-user">
+                                <div class="user-avatar">👤</div>
+                                <div class="user-info">
+                                    <div class="username">your_username</div>
+                                    <div class="location">Your Location</div>
+                                </div>
+                            </div>
+                            <div class="instagram-image">
+                                <div class="image-placeholder">📸 Your Photo</div>
+                            </div>
+                            <div class="instagram-caption">
+                                <span class="caption-username">your_username</span>
+                                <span class="caption-text" id="instagram-text"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Twitter/X Preview -->
+                    <div class="social-preview twitter-preview">
+                        <div class="preview-header">
+                            <div class="preview-platform">
+                                <span class="platform-icon">🐦</span>
+                                <span class="platform-name">Twitter / X</span>
+                            </div>
+                        </div>
+                        <div class="twitter-post">
+                            <div class="twitter-user">
+                                <div class="user-avatar">👤</div>
+                                <div class="user-info">
+                                    <div class="twitter-name">Your Name</div>
+                                    <div class="twitter-handle">@yourhandle</div>
+                                </div>
+                            </div>
+                            <div class="twitter-content" id="twitter-text"></div>
+                            <div class="twitter-footer">
+                                <span class="twitter-time">Just now</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TikTok Preview -->
+                    <div class="social-preview tiktok-preview">
+                        <div class="preview-header">
+                            <div class="preview-platform">
+                                <span class="platform-icon">🎵</span>
+                                <span class="platform-name">TikTok</span>
+                            </div>
+                        </div>
+                        <div class="tiktok-post">
+                            <div class="tiktok-video">
+                                <div class="video-placeholder">
+                                    <span class="play-icon">▶️</span>
+                                    <div>Your Video</div>
+                                </div>
+                                <div class="tiktok-caption" id="tiktok-text"></div>
+                            </div>
+                            <div class="tiktok-user">
+                                <div class="user-avatar">👤</div>
+                                <div class="tiktok-username">@yourusername</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-secondary" id="start-over-btn">
+                    <span class="btn-icon">🔄</span>
+                    Start Over
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Made with 💜 for teen privacy | Stay safe online!</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
