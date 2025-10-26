@@ -4,7 +4,7 @@
  */
 
 // Configuration - Change this to your deployed backend URL
-const API_BASE_URL = 'http://localhost:8000';  // Change to your Render.com URL when deployed
+const API_BASE_URL = 'https://teenshare.onrender.com';  // pointed to URL where backend is running
 
 // Global variables to store scan results
 let current_scan_results = null;
