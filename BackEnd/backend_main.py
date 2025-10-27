@@ -9,7 +9,7 @@ from pii_scanner import scan_text_for_pii, mask_sensitive_data, calculate_risk_l
 
 # Create the FastAPI app
 app = FastAPI(
-    title="SafeShare Privacy Scanner API",
+    title="TeenShare Privacy Scanner API",
     description="API for detecting and masking PII in text content",
     version="1.0.0"
 )
@@ -42,7 +42,7 @@ class ScanResponse(BaseModel):
 @app.get("/")
 def read_root():
     return {
-        "message": "SafeShare Privacy Scanner API is running!",
+        "message": "TeenShare Privacy Scanner API is running!",
         "status": "healthy",
         "version": "1.0.0"
     }

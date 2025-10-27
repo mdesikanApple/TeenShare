@@ -1,5 +1,5 @@
 /*
- * SafeShare Frontend Application
+ * TeenShare Frontend Application
  * Handles all user interactions and connects to the backend API
  */
 
@@ -14,7 +14,7 @@ let attached_file_name = '';
 
 // Wait for page to load before running code
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('SafeShare app loaded! 🛡️');
+    console.log('TeenShare app loaded! 🛡️');
     initialize_app();
 });
 
@@ -435,4 +435,4 @@ function sleep(milliseconds) {
 }
 
 // Log to console that app is ready
-console.log('✅ SafeShare is ready to protect your privacy!');
+console.log('✅ TeenShare is ready to protect your privacy!');

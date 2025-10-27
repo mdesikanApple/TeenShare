@@ -1,4 +1,4 @@
-# SafeShare Backend Requirements
+# TeenShare Backend Requirements
 # Install with: pip install -r requirements.txt
 
 # FastAPI - Web framework for building APIs

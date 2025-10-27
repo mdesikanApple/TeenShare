@@ -1,5 +1,5 @@
 """
-Test Suite for SafeShare Backend API
+Test Suite for TeenShare Backend API
 Run with: python test_api.py
 """
 
@@ -285,7 +285,7 @@ def test_masking_functionality():
 def run_all_tests():
     """Run all test cases"""
     print("\n" + "="*60)
-    print("SAFESHARE API TEST SUITE")
+    print("TeenShare API TEST SUITE")
     print("="*60)
     
     tests = [
@@ -323,7 +323,7 @@ def run_all_tests():
         print("\n⚠️ Some tests failed. Check the output above.")
 
 if __name__ == "__main__":
-    print("Starting SafeShare API Tests...")
+    print("Starting TeenShare API Tests...")
     print("Make sure the backend is running on", API_URL)
     
     # Wait for user confirmation
