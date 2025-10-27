@@ -227,7 +227,6 @@ def find_zip_codes(text: str) -> List[Dict]:
 def find_names_ai_style(text: str) -> List[Dict]:
     """
     Simplified AI-style detection for full names
-    In a real app, this would use NLP (Natural Language Processing)
     For now, we use pattern matching to find capitalized words that look like names
     """
     entities = []
