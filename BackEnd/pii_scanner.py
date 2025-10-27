@@ -1,8 +1,8 @@
 import re
 from typing import List, Dict, Tuple
 
-# Regular expressions for detecting different types of sensitive information
-# These patterns look for specific formats of personal data
+# Regular expressions and AI based pattern recognition for detecting different types of sensitive information
+# These patterns look for specific formats of personal data based on each field type
 
 # Social Security Number: XXX-XX-XXXX or XXXXXXXXX
 SSN_PATTERN = r'\b\d{3}-?\d{2}-?\d{4}\b'
